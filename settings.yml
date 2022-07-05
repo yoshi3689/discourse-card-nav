@@ -1,10 +1,8 @@
 show_on:
-  default: top_menu
+  default: homepage
   type: enum
   choices:
-    - top_menu
     - homepage
-    - all
   description: top_menu refers to the <a href="/admin/site_settings/category/all_results?filter=top_menu">top menu site setting</a>
 
 plugin_outlet:
@@ -13,16 +11,6 @@ plugin_outlet:
   choices:
     - above-main-container
     - below-site-header
-
-background_image:
-  type: upload
-  default: ""
-  description: background image for the banner
-
-clickable_image:
-  type: upload
-  default: ""
-  description: image with a link
 
 tile_background_image: false
 

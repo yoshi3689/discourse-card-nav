@@ -46,7 +46,7 @@ export default Component.extend({
   @observes("shouldDisplay")
   displayChanged() {
     document.documentElement.classList.toggle(
-      "display-search-banner",
+      "display-card-nav",
       this.shouldDisplay
     );
   },
@@ -56,6 +56,6 @@ export default Component.extend({
   },
 
   didDestroyElement() {
-    document.documentElement.classList.remove("display-search-banner");
+    document.documentElement.classList.remove("display-card-nav");
   },
 });
