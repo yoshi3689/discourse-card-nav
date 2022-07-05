@@ -9,7 +9,7 @@ export default Component.extend({
   tagName: "",
 
   @discourseComputed("router.currentRouteName")
-  displayForRoute(currentRouteName) {
+  displayForRoute1(currentRouteName) {
     const showOn = settings.show_on;
     if (showOn === "homepage") {
       return currentRouteName === `discovery.${defaultHomepage()}`;
@@ -27,7 +27,7 @@ export default Component.extend({
   },
 
   @discourseComputed("currentUser")
-  displayForUser(currentUser) {
+  displayForUser1(currentUser) {
     const showFor = settings.show_for;
     if (showFor === "everyone") {
       return true;
@@ -41,21 +41,21 @@ export default Component.extend({
 
   shouldDisplay: and("displayForUser", "displayForRoute"),
 
-  // Setting a class on <html> from a component is not great
-  // but we need it for backwards compatibility
-  @observes("shouldDisplay")
-  displayChanged() {
-    document.documentElement.classList.toggle(
-      "display-card-nav",
-      this.shouldDisplay
-    );
-  },
+  // // Setting a class on <html> from a component is not great
+  // // but we need it for backwards compatibility
+  // @observes("shouldDisplay")
+  // displayChanged() {
+  //   document.documentElement.classList.toggle(
+  //     "display-card-nav",
+  //     this.shouldDisplay
+  //   );
+  // },
 
-  didInsertElement() {
-    this.displayChanged();
-  },
+  // didInsertElement() {
+  //   this.displayChanged();
+  // },
 
-  didDestroyElement() {
-    document.documentElement.classList.remove("display-card-nav");
-  },
+  // didDestroyElement() {
+  //   document.documentElement.classList.remove("display-card-nav");
+  // },
 });
