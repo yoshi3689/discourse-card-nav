@@ -11,9 +11,9 @@ $max-width: 850px;
 }
 
 :root {
-  --txt-clr-anchor: #008060;
-  --txt-clr-anchor-hover: #004C3F;
-  --txt-clr-paragraph: #6B7177;
+  --tertiary: #008060;
+  --tertiary: #004C3F;
+  --primary-high: #6B7177;
 }
 
 body {
@@ -56,26 +56,26 @@ body {
 }
 
 .nav-cards a.nav-card:hover, .nav-cards.lia-body .nav-cards a.nav-card:focus, .nav-cards.lia-body .nav-cards a.nav-card:active {
-  border: 1px solid var(--txt-clr-anchor);
+  border: 1px solid var(--tertiary);
   box-shadow: 0px 0px 5px #d2d5d9;
 }
 
  .nav-cards a.nav-card h3, .nav-cards a {
   margin-bottom: 9px;
   font-size: 18px;
-  color: var(--txt-clr-anchor);
+  color: var(--tertiary);
   text-decoration: none;
 }
 
 .nav-cards a:hover, .nav-cards a:focus, .nav-cards a:active {
-  color: var(--txt-clr-anchor-hover);
+  color: var(--tertiary-hover);
   text-decoration: none;
 }
 
  .nav-cards a.nav-card p {
   font-size: 15px;
   line-height: 1.5;
-  color: var(--txt-clr-paragraph);
+  color: var(--primary-high);
   margin-bottom: auto;
   padding-bottom: 26px;
 }
