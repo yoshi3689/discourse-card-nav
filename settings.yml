@@ -13,6 +13,7 @@ plugin_outlet:
     - below-site-header
 
 tile_background_image: false
+background_image: false
 
 show_for:
   default: everyone
