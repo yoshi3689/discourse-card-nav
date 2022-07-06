@@ -61,8 +61,9 @@ body {
   text-decoration: none;
 }
 
-.nav-cards a.nav-card:hover > a, .nav-cards a.nav-card:focus > a, .nav-cards a.nav-card:active > a
-.nav-cards a.nav-card:hover > h3, .nav-cards a.nav-card:focus > h3, .nav-cards a.nav-card:active > h3 {
+.nav-cards a:hover, .nav-cards a:focus, .nav-cards a:active
+// .nav-cards h3:hover, .nav-cards h3:focus, .nav-cards h3:active 
+{
   color: var(--tertiary-hover);
   text-decoration: none;
 }
