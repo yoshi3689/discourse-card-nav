@@ -10,6 +10,11 @@ $max-width: 850px;
   padding: 0;
 }
 
+.card-nav {
+  z-index: -1;
+  position: relative;
+}
+
 body {
   font-family: "Shopify Sans",sans-serif;
   font-style: normal;
