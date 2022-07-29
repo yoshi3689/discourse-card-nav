@@ -11,7 +11,7 @@ export default Component.extend({
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
     const showOn = settings.show_on;
-    if (showOn === "homepage") {
+    if (showOn === "homepage" || showOn === "categories") {
       return currentRouteName === `discovery.${defaultHomepage()}`;
     } else if (showOn === "top_menu") {
       return this.siteSettings.top_menu
@@ -24,6 +24,12 @@ export default Component.extend({
         !currentRouteName.startsWith("admin.")
       );
     }
+    // else if (showOn === "top_menu") {
+    //   return this.siteSettings.top_menu
+    //     .split("|")
+    //     .any((m) => `discovery.${m}` === currentRouteName);
+    // } 
+    
   },
 
   @discourseComputed("currentUser")
