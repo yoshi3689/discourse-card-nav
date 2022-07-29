@@ -10,6 +10,7 @@ export default Component.extend({
 
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
+    console.log(currentRouteName);
     const showOn = settings.show_on;
     if (showOn === "homepage" || showOn === "categories") {
       return currentRouteName === `discovery.${defaultHomepage()}`;
