@@ -27,10 +27,8 @@ export default Component.extend({
 
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
-    console.log(currentRouteName);
     const showOn = settings.show_on;
     if (showOn === "homepage&categories") {
-      console.log(currentRouteName.includes("categories"));
       if (currentRouteName.includes("categories")) {
         this.onCategories = true;
       }
