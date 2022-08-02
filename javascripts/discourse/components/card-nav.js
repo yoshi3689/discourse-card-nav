@@ -30,6 +30,7 @@ export default Component.extend({
     const showOn = settings.show_on;
     if (showOn === "homepage&categories") {
       if (currentRouteName.includes("categories")) {
+        console.log("hello")
         this.onCategories = true;
       }
       return currentRouteName === `discovery.${defaultHomepage()}` || currentRouteName.includes("categories");
