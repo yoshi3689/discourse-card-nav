@@ -29,19 +29,18 @@ export default Component.extend({
   displayForRoute(currentRouteName) {
     console.log(currentRouteName);
     const showOn = settings.show_on;
-    if (showOn === "homepage") {
-      return currentRouteName === `discovery.${defaultHomepage()}`;
+    if (showOn === "homepage&categories") {
+      console.log(currentRouteName.includes("categories"));
+      if (currentRouteName.includes("categories")) {
+        this.onCategories = true;
+      }
+      return currentRouteName === `discovery.${defaultHomepage()}` || currentRouteName.includes("categories");
     } else if (showOn === "top_menu") {
       return this.siteSettings.top_menu
         .split("|")
         .any((m) => `discovery.${m}` === currentRouteName);
     } else {
       // "all"
-      console.log(currentRouteName.includes("categories"));
-      if (currentRouteName.includes("categories")) {
-        this.onCategories = true;
-        console.log(this.onCategories);
-      }
       return (
         currentRouteName !== "full-page-search" &&
         !currentRouteName.startsWith("admin.")

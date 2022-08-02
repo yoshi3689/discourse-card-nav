@@ -1,8 +1,8 @@
 show_on:
-  default: homepage
+  default: homepage&categories
   type: enum
   choices:
-    - homepage
+    - homepage&categories
     - all
   description: top_menu refers to the <a href="/admin/site_settings/category/all_results?filter=top_menu">top menu site setting</a>
 
