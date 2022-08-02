@@ -1,7 +1,7 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { defaultHomepage } from "discourse/lib/utilities";
-import { and } from "@ember/object/computed";
+import { and, bool  } from "@ember/object/computed";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
 export default Component.extend({
@@ -29,10 +29,6 @@ export default Component.extend({
   displayForRoute(currentRouteName) {
     const showOn = settings.show_on;
     if (showOn === "homepage&categories") {
-      if (currentRouteName.includes("categories")) {
-        console.log("hello");
-        this.onCategories = true;
-      }
       return currentRouteName === `discovery.${defaultHomepage()}` || currentRouteName.includes("categories");
     } else if (showOn === "top_menu") {
       return this.siteSettings.top_menu
@@ -45,8 +41,11 @@ export default Component.extend({
         !currentRouteName.startsWith("admin.")
       );
     }
-    
-    
+  },
+
+  @discourseComputed("router.currentRouteName")
+  isOnCategories(currentRouteName) {
+    return currentRouteName.includes("categories");
   },
 
   @discourseComputed("currentUser")
@@ -63,7 +62,7 @@ export default Component.extend({
   },
 
   shouldDisplay: and("displayForUser", "displayForRoute"),
-  onCategories: false,
+  onCategories: bool("isOnCategories"),
 
   // Setting a class on <html> from a component is not great
   // but we need it for backwards compatibility
