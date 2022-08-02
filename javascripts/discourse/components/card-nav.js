@@ -38,6 +38,9 @@ export default Component.extend({
         .any((m) => `discovery.${m}` === currentRouteName);
     } else {
       // "all"
+      if (currentRouteName.includes(categories)) {
+        this.onCategories = true;
+      }
       return (
         currentRouteName !== "full-page-search" &&
         !currentRouteName.startsWith("admin.")
@@ -61,6 +64,7 @@ export default Component.extend({
   },
 
   shouldDisplay: and("displayForUser", "displayForRoute"),
+  onCategories: false,
 
   // Setting a class on <html> from a component is not great
   // but we need it for backwards compatibility
