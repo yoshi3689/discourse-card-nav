@@ -30,7 +30,7 @@ export default Component.extend({
     console.log(currentRouteName);
     const showOn = settings.show_on;
     if (showOn === "homepage") {
-      return currentRouteName === `discovery.${defaultHomepage()}` || currentRouteName.includes(categories);
+      return currentRouteName === `discovery.${defaultHomepage()}`;
     } else if (showOn === "top_menu") {
       return this.siteSettings.top_menu
         .split("|")
