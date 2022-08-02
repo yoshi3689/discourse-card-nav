@@ -40,6 +40,7 @@ export default Component.extend({
       // "all"
       if (currentRouteName.includes(categories)) {
         this.onCategories = true;
+        console.log(this.onCategories);
       }
       return (
         currentRouteName !== "full-page-search" &&
