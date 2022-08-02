@@ -1,7 +1,7 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { defaultHomepage } from "discourse/lib/utilities";
-import { and, bool  } from "@ember/object/computed";
+import { bool  } from "@ember/object/computed";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
 export default Component.extend({
@@ -48,20 +48,7 @@ export default Component.extend({
     return currentRouteName.includes("categories");
   },
 
-  @discourseComputed("currentUser")
-  displayForUser(currentUser) {
-    const showFor = settings.show_for;
-    if (showFor === "everyone") {
-      return true;
-    } else if (showFor === "logged_out" && !currentUser) {
-      return true;
-    } else if (showFor === "logged_in" && currentUser) {
-      return true;
-    }
-    return false;
-  },
-
-  shouldDisplay: and("displayForUser", "displayForRoute"),
+  shouldDisplay: bool("displayForRoute"),
   onCategories: bool("isOnCategories"),
 
   // Setting a class on <html> from a component is not great
