@@ -1,9 +1,6 @@
 {{#if shouldDisplay}}
 <section class="nav-cards wrap custom-container">
     {{#if onCategories}}
-        {{#each categories as |category|}}
-            {{card data=category}}
-        {{/each}}
     {{else}}
     <a href={{html-safe (theme-i18n "card_nav.link1")}} class="nav-card">
         <span class="icon"></span>

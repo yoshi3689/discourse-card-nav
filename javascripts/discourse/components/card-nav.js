@@ -7,23 +7,23 @@ import discourseComputed, { observes } from "discourse-common/utils/decorators";
 export default Component.extend({
   router: service(),
   tagName: "",
-  init() {
-    this._super(...arguments);
-    if (window.location.pathname.includes("categories")) {
-      fetch('/categories.json')
-      .then(res => res.json())
-      .then(res => res.category_list.categories)
-      .then(data => data.map(category => {
-        return {
-          url: `/c/${category.slug}/${category.id}`,
-          name: category.name
-        };
-      }))
-      .then(data => {
-        this.set("categories", data);
-      });
-    }
-  },
+  // init() {
+  //   this._super(...arguments);
+  //   if (window.location.pathname.includes("categories")) {
+  //     fetch('/categories.json')
+  //     .then(res => res.json())
+  //     .then(res => res.category_list.categories)
+  //     .then(data => data.map(category => {
+  //       return {
+  //         url: `/c/${category.slug}/${category.id}`,
+  //         name: category.name
+  //       };
+  //     }))
+  //     .then(data => {
+  //       this.set("categories", data);
+  //     });
+  //   }
+  // },
 
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
