@@ -28,7 +28,6 @@ export default Component.extend({
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
     console.log(currentRouteName);
-    let categories = "categories";
     const showOn = settings.show_on;
     if (showOn === "homepage") {
       return currentRouteName === `discovery.${defaultHomepage()}` || currentRouteName.includes(categories);
@@ -38,7 +37,8 @@ export default Component.extend({
         .any((m) => `discovery.${m}` === currentRouteName);
     } else {
       // "all"
-      if (currentRouteName.includes(categories)) {
+      console.log(currentRouteName.includes("categories"));
+      if (currentRouteName.includes("categories")) {
         this.onCategories = true;
         console.log(this.onCategories);
       }
