@@ -8,7 +8,7 @@ export default Component.extend({
   tagName: "",
   router: service(),
   // classNames: ["custom-category-boxes-container"],
-  // classNameBindings: ["noneSelected:none-selected"],
+  classNameBindings: ["noneSelected:none-selected"],
   _allowedCategories(selectedCategories) {
     // filters categories to only include selected categories for each section
     // if (this.onCategories) {
@@ -59,6 +59,10 @@ export default Component.extend({
   @discourseComputed("router.currentRouteName")
   isOnCategories(currentRouteName) {
     return currentRouteName.includes("categories");
+  },
+  @discourseComputed()
+  noneSelected() {
+    return this.router.currentRoute.name.includes("None");
   },
 
   shouldDisplay: bool("displayForRoute"),
