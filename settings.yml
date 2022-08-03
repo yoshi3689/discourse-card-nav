@@ -24,7 +24,7 @@ show_for:
 
 link1:
   type: string
-  default: "/discussion"
+  default: "/categories"
 title1:
   type: string
   default: "Discussion"
@@ -34,7 +34,7 @@ sub-title1:
 
 link2:
   type: string
-  default: "/"
+  default: "/groups"
 title2:
   type: string
   default: "Groups"
@@ -44,7 +44,7 @@ sub-title2:
 
 link3:
   type: string
-  default: "/"
+  default: "/t/upcoming-events/42"
 title3:
   type: string
   default: "Events"
@@ -54,10 +54,10 @@ sub-title3:
 
 link4:
   type: string
-  default: "/"
+  default: "/#"
 title4:
   type: string
   default: "Learning"
 sub-title4: 
   type: string
-  default: "Take your knowledge to the next level through our learning materials"
+  default: "We are currently getting ready for the launch"
