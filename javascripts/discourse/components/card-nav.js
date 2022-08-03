@@ -5,25 +5,34 @@ import { bool  } from "@ember/object/computed";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
 export default Component.extend({
+  tagName: "div",
   router: service(),
-  tagName: "",
-  // init() {
-  //   this._super(...arguments);
-  //   if (window.location.pathname.includes("categories")) {
-  //     fetch('/categories.json')
-  //     .then(res => res.json())
-  //     .then(res => res.category_list.categories)
-  //     .then(data => data.map(category => {
-  //       return {
-  //         url: `/c/${category.slug}/${category.id}`,
-  //         name: category.name
-  //       };
-  //     }))
-  //     .then(data => {
-  //       this.set("categories", data);
-  //     });
-  //   }
-  // },
+  classNames: ["custom-category-boxes-container"],
+  classNameBindings: ["noneSelected:none-selected"],
+  _allowedCategories(selectedCategories) {
+    // filters categories to only include selected categories for each section
+    if (this.onCategories) {
+      let availableCategories = this.site.categories.filter(category => {
+        if (selectedCategories.indexOf(category.id) !== -1) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      return availableCategories;
+    } else {
+      let navItem = [];
+      for (let i = 1; i <= 4; i++) {
+        navItem.push({
+          link: settings[`link${i}`],
+          title: settings[`title${i}`],
+          subTitle: settings[`sub-title${i}`]
+        });
+      }
+      return navItem;
+    }
+  },
+
 
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {

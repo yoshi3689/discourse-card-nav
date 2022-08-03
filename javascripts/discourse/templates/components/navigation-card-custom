@@ -1,0 +1,6 @@
+<a href={{navItem.link}} class="nav-card">
+  <span class="icon"></span>
+  <h3>{{navItem.title}}</h3>
+  <p>{{navItem.subTitle}}</p>
+  <b class="nav-link">Learn more</b>
+</a>

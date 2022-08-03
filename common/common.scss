@@ -144,3 +144,38 @@ body  a.small-text, body  a.view-all-link, body  .nav-link, body  .message-histo
   }
 }
 
+.categories-and-latest, .categories-and-top {
+  display: block;
+  width: 100%;
+}
+
+.latest-topic-list-item span[title="This topic has a solution"] {
+  position: static;
+}
+
+div.latest-topic-list-item {
+  display: grid !important;
+  width: 95%;
+  grid-template-columns: 10%calc(90% - 10px);
+  grid-gap: 10px;
+  position: relative;
+}
+
+.column {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .categories-and-latest div.column {
+    width: 100%;
+    max-width: 100% !important;
+}
+}
+
+@media screen and (max-width: 1150px) {
+  .latest-topic-list-item span[title="This topic has a solution"]::after {
+    right: 10px;
+    top: 15px;
+  }
+
+}
