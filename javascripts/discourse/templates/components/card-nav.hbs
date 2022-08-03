@@ -2,11 +2,34 @@
 <section class="nav-cards wrap custom-container">
     {{#if onCategories}}
         {{#each categories as |category|}}
-            {{category-card-custom category=category}}
+        <a
+        data-category-id={{category.id}}
+        href={{category.url}} 
+        class="nav-card">
+        
+        <h3>
+            {{#if category.read_restricted}}
+            {{d-icon "lock"}}
+          {{/if}}
+          {{html-safe category.name}}
+        </h3>
+        <p>
+          {{#if category.description_excerpt}}
+            {{html-safe category.description_excerpt}}
+          {{else}}
+            No Category Description
+          {{/if}}
+        </p>
+        <b class="nav-link">Learn more</b>
+      </a>
         {{/each}}
     {{else}}
-        {{#each categories as |navItem|}}
-            {{navigation-card-custom navItem=navItem}}
+        {{#each categories as |category|}}
+        <a href={{category.link}} class="nav-card">
+            <h3>{{category.title}}</h3>
+            <p>{{category.subTitle}}</p>
+            <b class="nav-link">Learn more</b>
+          </a>
         {{/each}}
     {{/if}}
 </section>  
