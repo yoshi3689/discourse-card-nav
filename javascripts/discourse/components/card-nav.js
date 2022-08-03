@@ -16,8 +16,8 @@ export default Component.extend({
   tagName: "",
   router: service(),
   init() {
+    this._super(...arguments);
     if (this.onCategories) {
-      this._super(...arguments);
       this.set("categories", this.site.categories);
     } else {
       let navItem = [];
@@ -28,7 +28,7 @@ export default Component.extend({
           subTitle: settings[`sub-title${i}`]
         });
       }
-      return navItem;
+      this.set("categories", navItem);
     }
   },
   @discourseComputed("router.currentRouteName")
