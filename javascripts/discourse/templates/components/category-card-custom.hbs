@@ -1,7 +1,8 @@
-<a 
+<a
+  data-category-id={{category.id}}
   href={{category.url}} 
   class="nav-card">
-  data-category-id={{category.id}}
+  
   <span class="icon">
     {{#if category.read_restricted}}
       {{d-icon "lock"}}
