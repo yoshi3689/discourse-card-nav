@@ -12,6 +12,7 @@ export default Component.extend({
   _allowedCategories(selectedCategories) {
     // filters categories to only include selected categories for each section
     if (this.onCategories) {
+      console.log("on categories page");
       let availableCategories = this.site.categories.filter(category => {
         if (selectedCategories.indexOf(category.id) !== -1) {
           return true;
@@ -19,8 +20,10 @@ export default Component.extend({
           return false;
         }
       });
+      console.log("about return categories", availableCategories);
       return availableCategories;
     } else {
+      console.log("on other pages");
       let navItem = [];
       for (let i = 1; i <= 4; i++) {
         navItem.push({
@@ -29,6 +32,7 @@ export default Component.extend({
           subTitle: settings[`sub-title${i}`]
         });
       }
+      console.log("about return categories", navItem);
       return navItem;
     }
   },
