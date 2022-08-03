@@ -11,7 +11,7 @@ export default Component.extend({
   // classNameBindings: ["noneSelected:none-selected"],
   _allowedCategories(selectedCategories) {
     // filters categories to only include selected categories for each section
-    if (this.onCategories) {
+    // if (this.onCategories) {
       console.log("on categories page");
       let availableCategories = this.site.categories.filter(category => {
         if (selectedCategories.indexOf(category.id) !== -1) {
@@ -22,19 +22,19 @@ export default Component.extend({
       });
       console.log("about to return categories", availableCategories);
       return availableCategories;
-    } else {
-      console.log("on other pages");
-      let navItem = [];
-      for (let i = 1; i <= 4; i++) {
-        navItem.push({
-          link: settings[`link${i}`],
-          title: settings[`title${i}`],
-          subTitle: settings[`sub-title${i}`]
-        });
-      }
-      console.log("about return navItems", navItem);
-      return navItem;
-    }
+    // } else {
+    //   console.log("on other pages");
+    //   let navItem = [];
+    //   for (let i = 1; i <= 4; i++) {
+    //     navItem.push({
+    //       link: settings[`link${i}`],
+    //       title: settings[`title${i}`],
+    //       subTitle: settings[`sub-title${i}`]
+    //     });
+    //   }
+    //   console.log("about return navItems", navItem);
+    //   return navItem;
+    // }
   },
 
 
