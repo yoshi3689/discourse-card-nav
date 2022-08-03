@@ -8,9 +8,9 @@ export default apiInitializer("0.8", (api) => {
     if (categoryCardToggle) {
       const hiddenCards = document.querySelectorAll(".card-hidden");
       categoryCardToggle.addEventListener("click", () => {
+        categoryCardToggle.style.display = "none";
         hiddenCards.forEach(card => card.classList.remove('card-hidden'));
-      });
-      categoryCardToggle.style.display = "none";
+      }); 
     }
   });
 });
