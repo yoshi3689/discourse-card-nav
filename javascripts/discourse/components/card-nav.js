@@ -5,10 +5,10 @@ import { bool  } from "@ember/object/computed";
 import discourseComputed, { observes } from "discourse-common/utils/decorators";
 
 export default Component.extend({
-  tagName: "div",
+  tagName: "",
   router: service(),
-  classNames: ["custom-category-boxes-container"],
-  classNameBindings: ["noneSelected:none-selected"],
+  // classNames: ["custom-category-boxes-container"],
+  // classNameBindings: ["noneSelected:none-selected"],
   _allowedCategories(selectedCategories) {
     // filters categories to only include selected categories for each section
     if (this.onCategories) {
