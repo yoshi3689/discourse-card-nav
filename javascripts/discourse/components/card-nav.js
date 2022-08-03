@@ -34,9 +34,6 @@ export default Component.extend({
     this.set("categories", navItem);
   }
   },
-  init() {
-    this.onRouteChange();
-  },
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
     const showOn = settings.show_on;
