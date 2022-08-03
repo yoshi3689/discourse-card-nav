@@ -18,10 +18,10 @@ export default Component.extend({
   onRouteChange: function() {
     this._super(...arguments);
   if (this.onCategories) {
-    const categoriesToShow = this.site.categories.map((c, i) => {
-      return i > 7 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
-    });
-    this.set("categories", categoriesToShow);
+    // const categoriesToShow = this.site.categories.map((c, i) => {
+    //   return i > 7 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
+    // });
+    this.set("categories", this.site.categories);
   } else {
     let navItem = [];
     for (let i = 1; i <= 4; i++) {
