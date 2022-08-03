@@ -1,7 +1,15 @@
-{% comment %} {{#if shouldDisplay}} {% endcomment %}
+{{categories}}
+{{#if shouldDisplay}}
 <section class="nav-cards wrap custom-container">
-        {{#each categories as |category|}}
-            {{category-card-custom category=category}}
-        {{/each}}
+    {{#if onCategories}}
+    {{#each categories as |category|}}
+    {{category-card-custom category=category}}
+    {{/each}}
+    {{else}}
+    {{#each categories as |navItem|}}
+        {{navigation-card-custom navItem=navItem}}
+    {{/each}}
+    {{/if}}
+
 </section>  
-{% comment %} {{/if}} {% endcomment %}
+{{/if}}
