@@ -87,6 +87,23 @@ body {
   padding-bottom: 26px;
 }
 
+.card-hidden {
+  display: none;
+}
+
+.category-toggle:hover {
+  background-color: var(--tertiary-hover);
+  color: var(--tertiary-hover);
+}
+.category-toggle {
+  border: solid 1px var(--tertiary);
+  background-color: transparent;
+  color: var(--tertiary);
+  max-width: 74px;
+  border-radius: 3%;
+  display: block;
+}
+
 body a.small-text::after, body a.view-all-link::after, body  .nav-link::after, body  .message-history-link::after {
   content: "\2192";
   font-family: "icomoon";
@@ -107,7 +124,7 @@ body  a.small-text, body  a.view-all-link, body  .nav-link, body  .message-histo
   border: none;
 }
 
-.categories-and-latest {
+.category-list {
   display: none;
 }
 
