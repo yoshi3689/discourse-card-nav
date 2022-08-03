@@ -1,36 +1,38 @@
 {{#if shouldDisplay}}
-<section class="nav-cards wrap custom-container">
+  <section class="nav-cards wrap custom-container">
     {{#if onCategories}}
-        {{#each categories as |category|}}
+      {{#each categories as |category|}}
         <a
-        data-category-id={{category.id}}
-        href={{category.url}} 
-        class="nav-card">
-        
-        <h3>
+          data-category-id={{category.id}}
+          href={{category.url}}
+          class="nav-card {{html-safe category.showByDefault}}"
+        >
+
+          <h3>
             {{#if category.read_restricted}}
-            {{d-icon "lock"}}
-          {{/if}}
-          {{html-safe category.name}}
-        </h3>
-        <p>
-          {{#if category.description_excerpt}}
-            {{html-safe category.description_excerpt}}
-          {{else}}
-            No Category Description
-          {{/if}}
-        </p>
-        <b class="nav-link">Learn more</b>
-      </a>
-        {{/each}}
+              {{d-icon "lock"}}
+            {{/if}}
+            {{html-safe category.name}}
+          </h3>
+          <p>
+            {{#if category.description_excerpt}}
+              {{html-safe category.description_excerpt}}
+            {{else}}
+              No Category Description
+            {{/if}}
+          </p>
+          <b class="nav-link">Learn more</b>
+        </a>
+      {{/each}}
+      <button class="category-toggle">See More</button>
     {{else}}
-        {{#each categories as |category|}}
+      {{#each categories as |category|}}
         <a href={{category.link}} class="nav-card">
-            <h3>{{category.title}}</h3>
-            <p>{{category.subTitle}}</p>
-            <b class="nav-link">Learn more</b>
-          </a>
-        {{/each}}
+          <h3>{{category.title}}</h3>
+          <p>{{category.subTitle}}</p>
+          <b class="nav-link">Learn more</b>
+        </a>
+      {{/each}}
     {{/if}}
-</section>  
+  </section>
 {{/if}}
