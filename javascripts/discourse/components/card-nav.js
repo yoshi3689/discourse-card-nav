@@ -20,7 +20,7 @@ export default Component.extend({
           return false;
         }
       });
-      console.log("about return categories", availableCategories);
+      console.log("about to return categories", availableCategories);
       return availableCategories;
     } else {
       console.log("on other pages");
@@ -32,7 +32,7 @@ export default Component.extend({
           subTitle: settings[`sub-title${i}`]
         });
       }
-      console.log("about return categories", navItem);
+      console.log("about return navItems", navItem);
       return navItem;
     }
   },
