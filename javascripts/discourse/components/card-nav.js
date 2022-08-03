@@ -15,21 +15,27 @@ import discourseComputed, {
 export default Component.extend({
   tagName: "",
   router: service(),
-  init() {
+  onRouteChange: function() {
     this._super(...arguments);
-    if (this.onCategories) {
-      this.set("categories", this.site.categories);
-    } else {
-      let navItem = [];
-      for (let i = 1; i <= 4; i++) {
-        navItem.push({
-          link: settings[`link${i}`],
-          title: settings[`title${i}`],
-          subTitle: settings[`sub-title${i}`]
-        });
-      }
-      this.set("categories", navItem);
+  if (this.onCategories) {
+    const categoriesToShow = this.site.categories.map((c, i) => {
+      return i > 7 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
+    });
+    this.set("categories", categoriesToShow);
+  } else {
+    let navItem = [];
+    for (let i = 1; i <= 4; i++) {
+      navItem.push({
+        link: settings[`link${i}`],
+        title: settings[`title${i}`],
+        subTitle: settings[`sub-title${i}`]
+      });
     }
+    this.set("categories", navItem);
+  }
+  },
+  init() {
+    this.onRouteChange();
   },
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
@@ -62,6 +68,10 @@ export default Component.extend({
       "display-card-nav",
       this.shouldDisplay
     );
+  },
+  @observes("onCategories")
+  routeChanged() {
+    this.onRouteChange();
   },
 
   didInsertElement() {
