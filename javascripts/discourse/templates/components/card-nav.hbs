@@ -1,15 +1,13 @@
-{{categories}}
 {{#if shouldDisplay}}
 <section class="nav-cards wrap custom-container">
     {{#if onCategories}}
-    {{#each categories as |category|}}
-    {{category-card-custom category=category}}
-    {{/each}}
+        {{#each categories as |category|}}
+            {{category-card-custom category=category}}
+        {{/each}}
     {{else}}
-    {{#each categories as |navItem|}}
-        {{navigation-card-custom navItem=navItem}}
-    {{/each}}
+        {{#each categories as |navItem|}}
+            {{navigation-card-custom navItem=navItem}}
+        {{/each}}
     {{/if}}
-
 </section>  
 {{/if}}
