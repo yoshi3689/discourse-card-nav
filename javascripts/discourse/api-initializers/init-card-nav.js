@@ -10,6 +10,7 @@ export default apiInitializer("0.8", (api) => {
       categoryCardToggle.addEventListener("click", () => {
         hiddenCards.forEach(card => card.classList.remove('card-hidden'));
       });
+      categoryCardToggle.style.display = "none";
     }
   });
 });

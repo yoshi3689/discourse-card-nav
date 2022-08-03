@@ -92,16 +92,23 @@ body {
 }
 
 .category-toggle:hover {
-  background-color: var(--tertiary-hover);
+  border-color: var(--tertiary-hover);
   color: var(--tertiary-hover);
 }
 .category-toggle {
+  transition: 250ms ease-in-out;
+  white-space: nowrap;
   border: solid 1px var(--tertiary);
   background-color: transparent;
   color: var(--tertiary);
-  max-width: 74px;
-  border-radius: 3%;
+  max-width: 156px;
+  padding: 0.5rem 0;
+  width: 100%;
+  border-radius: 5px;
   display: block;
+  text-align: center;
+  margin: auto;
+  grid-column: 1 / -1;
 }
 
 body a.small-text::after, body a.view-all-link::after, body  .nav-link::after, body  .message-history-link::after {
