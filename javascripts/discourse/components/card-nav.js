@@ -38,7 +38,13 @@ export default Component.extend({
     this._super(...arguments);
     if (this.onCategories) {
       const categoriesToShow = this.site.categories.map((c, i) => {
-        return i > 7 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
+        if (i === 0) {
+          return;
+        } else if (i > 8) {
+          return {...c, showByDefault : "card-hidden"};
+        } else {
+          return {...c, showByDefault : ""}
+        }
       });
       this.set("categories", categoriesToShow);
     } else {
