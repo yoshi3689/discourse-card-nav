@@ -38,15 +38,13 @@ export default Component.extend({
     this._super(...arguments);
     if (this.onCategories) {
       const categoriesToShow = this.site.categories.map((c, i) => {
-        if (i === 0) {
-          return;
-        } else if (i > 8) {
+        if (i > 7) {
           return {...c, showByDefault : "card-hidden"};
         } else {
           return {...c, showByDefault : ""}
         }
       });
-      console.log(categoriesToShow)
+      categoriesToShow.shift();
       this.set("categories", categoriesToShow);
     } else {
       let navItem = [];
