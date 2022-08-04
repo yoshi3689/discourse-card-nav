@@ -36,7 +36,24 @@ export default Component.extend({
   }
   },
   init () {
-    this.onRouteChange(this);
+    this._super(...arguments);
+    if (this.onCategories) {
+      const categoriesToShow = this.site.categories.map((c, i) => {
+        return i > 7 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
+      });
+      categoriesToShow.shift();
+      this.set("categories", categoriesToShow);
+    } else {
+      let navItem = [];
+      for (let i = 1; i <= 4; i++) {
+        navItem.push({
+          link: settings[`link${i}`],
+          title: settings[`title${i}`],
+          subTitle: settings[`sub-title${i}`]
+        });
+      }
+      this.set("categories", navItem);
+    }
   },
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
