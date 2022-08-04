@@ -15,13 +15,14 @@ import discourseComputed, {
 export default Component.extend({
   tagName: "",
   router: service(),
-  onRouteChange:  function() {
-    this._super(...arguments);
-  if (this.onCategories) {
-    const categoriesToShow = this.site.categories.map((c, i) => {
+  onRouteChange:  (component) => {
+    component._super(...arguments);
+  if (component.onCategories) {
+    const categoriesToShow = component.site.categories.map((c, i) => {
       return i > 7 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
     });
-    this.set("categories", categoriesToShow);
+    categoriesToShow.shift();
+    component.set("categories", categoriesToShow);
   } else {
     let navItem = [];
     for (let i = 1; i <= 4; i++) {
@@ -31,32 +32,11 @@ export default Component.extend({
         subTitle: settings[`sub-title${i}`]
       });
     }
-    this.set("categories", navItem);
+    component.set("categories", navItem);
   }
   },
   init () {
-    this._super(...arguments);
-    if (this.onCategories) {
-      const categoriesToShow = this.site.categories.map((c, i) => {
-        if (i > 7) {
-          return {...c, showByDefault : "card-hidden"};
-        } else {
-          return {...c, showByDefault : ""}
-        }
-      });
-      categoriesToShow.shift();
-      this.set("categories", categoriesToShow);
-    } else {
-      let navItem = [];
-      for (let i = 1; i <= 4; i++) {
-        navItem.push({
-          link: settings[`link${i}`],
-          title: settings[`title${i}`],
-          subTitle: settings[`sub-title${i}`]
-        });
-      }
-      this.set("categories", navItem);
-    }
+    this.onRouteChange(this);
   },
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
@@ -92,7 +72,7 @@ export default Component.extend({
   },
   @observes("onCategories")
   routeChanged() {
-    this.onRouteChange();
+    this.onRouteChange(this);
   },
 
   didInsertElement() {
