@@ -46,6 +46,7 @@ export default Component.extend({
           return {...c, showByDefault : ""}
         }
       });
+      console.log(categoriesToShow)
       this.set("categories", categoriesToShow);
     } else {
       let navItem = [];
