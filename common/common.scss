@@ -85,6 +85,10 @@ body {
   color: var(--primary-high);
   margin-bottom: auto;
   padding-bottom: 26px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-hidden {
