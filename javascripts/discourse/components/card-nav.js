@@ -19,7 +19,7 @@ export default Component.extend({
     component._super(...arguments);
   if (component.onCategories) {
     const categoriesToShow = component.site.categories.map((c, i) => {
-      return i > 8 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
+      return i > 8 ? {...c, showByDefault : "card-hidden", url: `/c/${c.slug}/id`} : {...c, showByDefault : "", url: `/c/${c.slug}/id`};
     });
     categoriesToShow.shift();
     component.set("categories", categoriesToShow);
