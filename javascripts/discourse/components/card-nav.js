@@ -41,6 +41,7 @@ export default Component.extend({
       const categoriesToShow = this.site.categories.map((c, i) => {
         return i > 8 ? {...c, showByDefault : "card-hidden"} : {...c, showByDefault : ""};
       });
+      console.log(categoriesToShow);
       categoriesToShow.shift();
       this.set("categories", categoriesToShow);
     } else {

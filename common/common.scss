@@ -3,9 +3,6 @@
 
 $max-width: 850px;
 
-// the width of the search bar is too big on mobile
-// so that the button/search bar looks weird
-
 * {
   margin: 0;
   padding: 0;
@@ -46,13 +43,6 @@ body {
   padding-bottom: 40px;
   min-height: 100px;
   margin-bottom: 20px;
-
-  /* original */
-  /* margin-right: 2%; */
-  /* margin-bottom: 0; */
-  /* width: 23.5%; */
-  /* min-height: 225px; */
-
   vertical-align: text-top;
   position: relative;
   border: 1px solid #d8dadd;
