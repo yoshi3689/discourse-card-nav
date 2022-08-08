@@ -22,7 +22,6 @@ export default Component.extend({
     .map((c, i) => {
       return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
     });
-    console.log(categoriesToShow);
     categoriesToShow.shift();
     component.set("categories", categoriesToShow);
   } else {
