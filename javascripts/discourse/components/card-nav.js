@@ -18,7 +18,8 @@ export default Component.extend({
   onRouteChange:  (component) => {
     component._super(...arguments);
   if (component.onCategories) {
-    const categoriesToShow = component.site.categories.map((c, i) => {
+    const categoriesToShow = component.site.categories.filter(c => !c.isMuted)
+    .map((c, i) => {
       return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
     });
     categoriesToShow.shift();
