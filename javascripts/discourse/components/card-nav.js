@@ -23,6 +23,7 @@ export default Component.extend({
       return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
     });
     categoriesToShow.shift();
+    console.log(categoriesToShow);
     component.set("categories", categoriesToShow);
   } else {
     let navItem = [];
@@ -44,6 +45,7 @@ export default Component.extend({
         return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
       });
       categoriesToShow.shift();
+      console.log(categoriesToShow);
       this.set("categories", categoriesToShow);
     } else {
       let navItem = [];
