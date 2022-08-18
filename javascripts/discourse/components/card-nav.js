@@ -20,8 +20,8 @@ export default Component.extend({
   if (component.onCategories) {
     const categoriesToShow = component.site.categories.filter(c => !c.isMuted)
     .map((c, i) => {
-      console.log(c.parentCategory.slug);
       let parentCategory = c.parentCategory ? `${c.parentCategory.slug}/` : "";
+      console.log(parentCategory);
       return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${parentCategory}${c.slug}/${c.id}`};
     });
     categoriesToShow.shift();
@@ -44,7 +44,7 @@ export default Component.extend({
       const categoriesToShow = this.site.categories.filter(c => !c.isMuted)
       .map((c, i) => {
         let parentCategory = c.parentCategory ? `${c.parentCategory}/` : "";
-        console.log(c.parentCategory.slug);
+        console.log(parentCategory);
         return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${parentCategory}${c.slug}/${c.id}`};
       });
       categoriesToShow.shift();
