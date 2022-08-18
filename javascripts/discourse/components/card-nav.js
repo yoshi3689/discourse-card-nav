@@ -20,10 +20,10 @@ export default Component.extend({
   if (component.onCategories) {
     const categoriesToShow = component.site.categories.filter(c => !c.isMuted)
     .map((c, i) => {
-      return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
+      let parentCategory = c.parentCategory ? `${c.parentCategory}/` : "";
+      return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
     });
     categoriesToShow.shift();
-    console.log(categoriesToShow);
     component.set("categories", categoriesToShow);
   } else {
     let navItem = [];
@@ -42,10 +42,10 @@ export default Component.extend({
     if (this.onCategories) {
       const categoriesToShow = this.site.categories.filter(c => !c.isMuted)
       .map((c, i) => {
-        return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
+        let parentCategory = c.parentCategory ? `${c.parentCategory}/` : "";
+        return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
       });
       categoriesToShow.shift();
-      console.log(categoriesToShow);
       this.set("categories", categoriesToShow);
     } else {
       let navItem = [];
