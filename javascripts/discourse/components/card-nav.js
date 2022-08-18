@@ -45,7 +45,7 @@ export default Component.extend({
       .map((c, i) => {
         let parentCategory = c.parentCategory ? `${c.parentCategory}/` : "";
         console.log(c.parentCategory, parentCategory);
-        return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${c.slug}/${c.id}`};
+        return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${parentCategory}${c.slug}/${c.id}`};
       });
       categoriesToShow.shift();
       this.set("categories", categoriesToShow);
