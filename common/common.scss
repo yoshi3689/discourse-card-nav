@@ -39,7 +39,6 @@ $max-width: 850px;
   padding: 30px 0px;
   display: grid;
   grid-template-columns: 1fr;
-
   .nav-card {
     box-shadow: 0px 0px 8px #d2d5d9;
     padding: 20px;
@@ -85,6 +84,7 @@ $max-width: 850px;
       font-weight: 500;
       padding: 0;
       border: none;
+      font-size: 15px;
       &::after {
         content: "\2192";
         font-family: "icomoon";
@@ -126,18 +126,14 @@ $max-width: 850px;
   }
 }
 
-// body a.small-text, body a.view-all-link, body .nav-link, body .message-history-link {
-//   font-size: 15px;
-//   font-weight: 500;
-//   padding: 0;
-//   border: none;
-// }
-
-// tow cards on one line
+// two cards on one line
 @media screen and (min-width: 800px) {
   .nav-cards {
     grid-template-columns: 1fr 1fr;
     .nav-card {
+      // guarantees that card with 
+      // less content than the others
+      // do not get too small vertically
       min-height: 135px;
       &:nth-child(odd) {
         margin-right: 5%;
