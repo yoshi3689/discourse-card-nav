@@ -1,28 +1,3 @@
-// transfer these general fnt rules to another component
-
-@import "common/foundation/mixins";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&display=swap");
-
-:root {
-  --font-family: "Roboto Slab", sans-serif;
-  --heading-font-family: "Roboto Slab", sans-serif;
-}
-
-body {
-  font-family: "Roboto Slab", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-
-
-$max-width: 850px;
-* {
-  margin: 0;
-  padding: 0;
-}
-
 // card nav section and wrapper for the container of cards
 .card-nav {
   z-index: 0;
