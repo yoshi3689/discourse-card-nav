@@ -1,94 +1,110 @@
+// transfer these general fnt rules to another component
+
 @import "common/foundation/mixins";
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&display=swap');
-
-$max-width: 850px;
-
-* {
-  margin: 0;
-  padding: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&display=swap");
 
 :root {
   --font-family: "Roboto Slab", sans-serif;
   --heading-font-family: "Roboto Slab", sans-serif;
 }
 
-.card-nav {
-  z-index: 0;
-  position: relative;
-}
-
 body {
-  font-family: "Roboto Slab",sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
 }
 
-.wrap::after,
-.wrap::before {
-  display: none;
-  content: "";
+
+
+$max-width: 850px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
+// card nav section and wrapper for the container of cards
+.card-nav {
+  z-index: 0;
+  position: relative;
+  .wrap::after,
+  .wrap::before {
+    display: none;
+    content: "";
+  }
+}
+
+// container for cards, card and card content
 .nav-cards {
   padding: 30px 0px;
   display: grid;
   grid-template-columns: 1fr;
-}
 
- .nav-cards a.nav-card {
-  box-shadow: 0px 0px 8px #d2d5d9;
-  padding: 20px;
-  padding-bottom: 40px;
-  min-height: 100px;
-  margin-bottom: 20px;
-  vertical-align: text-top;
-  position: relative;
-  border: 1px solid #d8dadd;
-  transition: all 0.3s ease;
-  border-radius: 3px;
-}
-
-.nav-cards a.nav-card:hover, .nav-cards.lia-body .nav-cards a.nav-card:focus, .nav-cards.lia-body .nav-cards a.nav-card:active {
-  border: 1px solid var(--tertiary-hover);
-  box-shadow: 0px 0px 5px #d2d5d9;
-}
-
- .nav-cards a.nav-card h3, .nav-cards a {
-  margin-bottom: 9px;
-  font-size: 18px;
-  color: var(--tertiary);
-  text-decoration: none;
-}
-
-.nav-card:hover a, .nav-card:focus a, .nav-card:active a
-.nav-card:hover h3, .nav-card:focus h3, .nav-card:active h3 
-{
-  color: var(--tertiary-hover);
-  text-decoration: none;
-}
-
- .nav-cards a.nav-card p {
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--primary-high);
-  margin-bottom: auto;
-  padding-bottom: 26px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  .nav-card {
+    box-shadow: 0px 0px 8px #d2d5d9;
+    padding: 20px;
+    padding-bottom: 40px;
+    min-height: 100px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: var(--tertiary);
+    text-decoration: none;
+    vertical-align: text-top;
+    position: relative;
+    border: 1px solid #d8dadd;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+    &:active,
+    &:hover {
+      border: 1px solid var(--tertiary-hover);
+      box-shadow: 0px 0px 5px #d2d5d9;
+    }
+    &:hover .nav-link,
+    &:focus .nav-link,
+    &:active .nav-link,
+    &:hover h3,
+    &:focus h3,
+    &:active h3 {
+      color: var(--tertiary-hover);
+      text-decoration: none;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--primary-high);
+      margin-bottom: auto;
+      padding-bottom: 26px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .nav-link {
+      position: absolute;
+      bottom: 26px;
+      font-weight: 500;
+      padding: 0;
+      border: none;
+      &::after {
+        content: "\2192";
+        font-family: "icomoon";
+        font-size: 16px;
+        font-weight: 900;
+        margin-left: 6px;
+        font-size: 15px;
+      }
+    }
+  }
 }
 
 .card-hidden {
   display: none;
 }
 
-.category-toggle:hover {
-  border-color: var(--tertiary-hover);
-  color: var(--tertiary-hover);
+.category-list {
+  display: none;
 }
+
 .category-toggle {
   transition: 250ms ease-in-out;
   white-space: nowrap;
@@ -104,101 +120,48 @@ body {
   margin: auto;
   grid-column: 1 / -1;
   margin-top: 2rem;
+  &:hover {
+    border-color: var(--tertiary-hover);
+    color: var(--tertiary-hover);
+  }
 }
 
-body a.small-text::after, body a.view-all-link::after, body  .nav-link::after, body  .message-history-link::after {
-  content: "\2192";
-  font-family: "icomoon";
-  font-size: 16px;
-  font-weight: 900;
-  margin-left: 6px;
-}
+// body a.small-text, body a.view-all-link, body .nav-link, body .message-history-link {
+//   font-size: 15px;
+//   font-weight: 500;
+//   padding: 0;
+//   border: none;
+// }
 
- .nav-cards a.nav-card b.nav-link {
-  position: absolute;
-  bottom: 26px;
-}
-
-body  a.small-text, body  a.view-all-link, body  .nav-link, body  .message-history-link {
-  font-size: 15px;
-  font-weight: 500;
-  padding: 0;
-  border: none;
-}
-
-.category-list {
-  display: none;
-}
-
+// tow cards on one line
 @media screen and (min-width: 800px) {
   .nav-cards {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .nav-cards a.nav-card {
-    min-height: 135px;
-  }
-
-  .nav-cards a.nav-card:nth-child(odd) {
-    margin-right: 5%;
-  }
-
-  .nav-cards a.nav-card b.nav-link {
-    bottom: 36px;
+    .nav-card {
+      min-height: 135px;
+      &:nth-child(odd) {
+        margin-right: 5%;
+      }
+      .nav-link {
+        bottom: 36px;
+      }
+    }
   }
 }
 
+// four cards on one line
 @media screen and (min-width: 1200px) {
   .nav-cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  .nav-cards a.nav-card {
-    min-height: 175px;
-  }
-
-  .nav-cards a.nav-card:not(:last-child) {
-    margin-right: 7%;
-  }
-
-  .nav-cards a.nav-card b.nav-link {
-    position: absolute;
-    bottom: 52px;
+    .nav-card {
+      min-height: 175px;
+      &:not(:last-child) {
+        margin-right: 7%;
+      }
+      .nav-link {
+        position: absolute;
+        bottom: 52px;
+      }
+    }
   }
 }
-
-// .categories-and-latest, .categories-and-top {
-//   display: block;
-//   width: 100%;
-// }
-
-// .latest-topic-list-item span[title="This topic has a solution"] {
-//   position: static;
-// }
-
-// div.latest-topic-list-item {
-//   display: grid !important;
-//   width: 95%;
-//   grid-template-columns: 10%calc(90% - 10px);
-//   grid-gap: 10px;
-//   position: relative;
-// }
-
-// .column {
-//   margin-top: 0;
-// }
-
-// @media screen and (max-width: 500px) {
-//   .categories-and-latest div.column {
-//     width: 100%;
-//     max-width: 100% !important;
-// }
-// }
-
-// @media screen and (max-width: 1150px) {
-//   .latest-topic-list-item span[title="This topic has a solution"]::after {
-//     right: 10px;
-//     top: 15px;
-//   }
-
-// }

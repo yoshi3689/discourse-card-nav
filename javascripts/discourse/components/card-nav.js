@@ -15,16 +15,21 @@ import discourseComputed, {
 export default Component.extend({
   tagName: "",
   router: service(),
+  // every time the url changes
   onRouteChange:  (component) => {
     component._super(...arguments);
+    // if you are on the categories page
   if (component.onCategories) {
+    // get rid of muted categories from the list
     const categoriesToShow = component.site.categories.filter(c => !c.isMuted)
     .map((c, i) => {
       let parentCategory = c.parentCategory ? `${c.parentCategory.slug}/` : "";
       return i > 8 ? {...c, showByDefault : "card-hidden", category_url: `/c/${parentCategory}/${c.slug}/${c.id}`} : {...c, showByDefault : "", category_url: `/c/${parentCategory}${c.slug}/${c.id}`};
     });
+    // get rid of the uncategorized from the list 
     categoriesToShow.shift();
     component.set("categories", categoriesToShow);
+    // if you are on the other pages
   } else {
     let navItem = [];
     for (let i = 1; i <= 4; i++) {
@@ -37,6 +42,7 @@ export default Component.extend({
     component.set("categories", navItem);
   }
   },
+  // every time the component is built(includes page refresh)
   init () {
     this._super(...arguments);
     if (this.onCategories) {
@@ -59,6 +65,7 @@ export default Component.extend({
       this.set("categories", navItem);
     }
   },
+  // determine if the component should show or not based on the current route
   @discourseComputed("router.currentRouteName")
   displayForRoute(currentRouteName) {
     const showOn = settings.show_on;
@@ -76,12 +83,12 @@ export default Component.extend({
       );
     }
   },
+  // determine if you are on the categories page or not
   @discourseComputed("router.currentRouteName")
   isOnCategories(currentRouteName) {
     return currentRouteName.includes("categories");
   },
-  shouldDisplay: bool("displayForRoute"),
-  onCategories: bool("isOnCategories"),
+  // determine if the component should show or not
   @observes("shouldDisplay")
   displayChanged() {
     document.documentElement.classList.toggle(
@@ -89,6 +96,8 @@ export default Component.extend({
       this.shouldDisplay
     );
   },
+  shouldDisplay: bool("displayForRoute"),
+  onCategories: bool("isOnCategories"),
   @observes("onCategories")
   routeChanged() {
     this.onRouteChange(this);
